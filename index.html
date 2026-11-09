@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陪跑计划 · 1对1带你建立自己的交易系统 | Joyce 高冷悦姐</title>
+<meta name="description" content="马来西亚合格认证交易员 Joyce 高冷悦姐 · 陪跑计划:1对1陪跑 + 每天LIVE实盘带盘 + 专属学习App,陪跑到你独立交易为止。">
+<meta property="og:title" content="陪跑计划 · 1对1带你建立自己的交易系统">
+<meta property="og:description" content="不卖信号,不叫你跟单。每天 LIVE 实盘手把手教,陪跑到你独立交易为止。">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1141020368341463');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1141020368341463&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel -->
+<style>
+@font-face{
+  font-family:'MiSans Heavy';
+  src:url('assets/misans-heavy-subset.woff2') format('woff2');
+  font-weight:900;font-display:swap;
+}
+:root{
+  --bg:#0B0A08;
+  --bg2:#13110D;
+  --card:rgba(255,255,255,.035);
+  --line:rgba(214,190,140,.13);
+  --line-hi:rgba(230,208,160,.34);
+  --ice:#D8BC85;
+  --plat:#EEDDB8;
+  --plat-hi:#FFFFFF;
+  --grad:linear-gradient(115deg,#FFFFFF 0%,#EEDDB8 42%,#C6A465 100%);
+  --txt:#F7F1EE;
+  --dim:#ADA597;
+  --on-plat:#1A140A;
+  --live:#FF4D5E;
+  --wa:#25D366;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+  line-height:1.7;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.disp{
+  font-family:'MiSans Heavy','PingFang SC',sans-serif;
+  font-weight:900;font-style:italic;
+  letter-spacing:.01em;
+}
+.gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px;position:relative;}
+section{padding:72px 0;position:relative;}
+
+/* ---------- scroll progress ---------- */
+#progress{
+  position:fixed;top:0;left:0;height:2.5px;width:100%;z-index:200;
+  background:var(--grad);transform-origin:0 50%;transform:scaleX(0);
+  pointer-events:none;
+}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .4s,border-color .4s,backdrop-filter .4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(11,10,8,.72);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border-bottom-color:var(--line);
+}
+.nav-in{
+  max-width:720px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.logo{font-size:15px;letter-spacing:.14em;text-decoration:none;margin-right:auto;}
+.logo b{color:var(--txt);font-weight:800;}
+.logo span{color:var(--ice);}
+.nav-ig{
+  display:flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--line-hi);color:var(--plat);
+  transition:transform .2s var(--ease),border-color .2s;cursor:pointer;
+}
+.nav-ig:hover{transform:translateY(-1px);border-color:var(--plat);}
+.nav-ig svg{width:17px;height:17px;}
+.nav-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:700;color:var(--on-plat);text-decoration:none;
+  background:var(--grad);padding:8px 16px;border-radius:100px;
+  transition:transform .2s var(--ease),box-shadow .2s;
+  cursor:pointer;
+}
+.nav-wa:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(216,188,133,.35);}
+.nav-wa:active{transform:scale(.96);}
+.nav-wa svg{width:15px;height:15px;}
+
+/* ---------- ambient blobs ---------- */
+.blob{
+  position:absolute;border-radius:50%;filter:blur(70px);
+  pointer-events:none;will-change:transform;
+}
+.blob.b1{width:420px;height:420px;top:-140px;right:-120px;background:rgba(210,170,110,.13);animation:drift1 22s ease-in-out infinite alternate;}
+.blob.b2{width:340px;height:340px;bottom:6%;left:-160px;background:rgba(176,140,80,.10);animation:drift2 28s ease-in-out infinite alternate;}
+.blob.b3{width:260px;height:260px;top:38%;right:-90px;background:rgba(238,221,184,.06);animation:drift3 34s ease-in-out infinite alternate;}
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,50px) scale(1.15)}}
+@keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-40px) scale(1.1)}}
+@keyframes drift3{from{transform:translate(0,0)}to{transform:translate(-40px,-60px)}}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  padding:118px 0 0;
+  background:
+    radial-gradient(ellipse 100% 60% at 80% 0%,rgba(140,175,240,.10),transparent 60%),
+    var(--bg);
+}
+.hero-grid{position:relative;z-index:2;}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line-hi);border-radius:100px;
+  padding:7px 16px;font-size:12.5px;color:var(--plat);
+  background:rgba(216,188,133,.06);letter-spacing:.08em;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--grad);
+  box-shadow:0 0 8px rgba(238,221,184,.9);animation:pulse 2.4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{
+  font-size:clamp(52px,15vw,78px);line-height:1.04;margin:22px 0 4px;
+  transform:skewX(-3deg);
+}
+.h1sub{
+  font-size:clamp(20px,5.4vw,27px);line-height:1.35;margin-bottom:16px;
+  transform:skewX(-3deg);
+}
+p.lead{color:var(--dim);font-size:15.5px;max-width:30em;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;}
+.chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;padding:8px 14px;border-radius:100px;
+  background:var(--card);border:1px solid var(--line);color:var(--txt);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+.chip b{color:var(--ice);font-weight:700;}
+.chip .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--live);
+  box-shadow:0 0 8px rgba(255,77,94,.8);animation:pulse 1.6s ease-in-out infinite;
+}
+
+/* hero photo */
+.hero-visual{position:relative;margin:8px auto 0;width:min(300px,66%);}
+.hero-visual::before{
+  content:'';position:absolute;inset:8% -12% -4% -12%;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 42%,rgba(216,188,133,.16),transparent 68%);
+  filter:blur(24px);
+}
+.hero-photo{
+  position:relative;display:block;width:100%;height:auto;
+  -webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent 98%);
+  mask-image:linear-gradient(to bottom,#000 68%,transparent 98%);
+  filter:drop-shadow(0 18px 40px rgba(0,0,0,.5));
+}
+.hero-cta{position:relative;z-index:3;margin-top:14px;padding-bottom:54px;text-align:center;}
+
+/* ---------- CTA button ---------- */
+.btn-wa{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--grad);color:var(--on-plat);text-decoration:none;
+  font-size:16.5px;font-weight:800;letter-spacing:.02em;
+  padding:17px 36px;border-radius:100px;cursor:pointer;border:0;
+  box-shadow:0 12px 36px rgba(216,188,133,.28),inset 0 1px 0 rgba(255,255,255,.7);
+  transition:transform .25s var(--ease),box-shadow .25s;
+}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(216,188,133,.4),inset 0 1px 0 rgba(255,255,255,.7);}
+.btn-wa:active{transform:scale(.97);}
+.btn-wa svg{width:20px;height:20px;flex:none;}
+.btn-wa::after{
+  content:'';position:absolute;top:0;left:-80%;width:45%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.6),transparent);
+  transform:skewX(-20deg);animation:shine 3.6s var(--ease) infinite;
+}
+@keyframes shine{0%,55%{left:-80%}85%,100%{left:140%}}
+.btn-note{margin-top:14px;font-size:12.5px;color:var(--dim);letter-spacing:.03em;}
+
+/* ---------- marquee ---------- */
+.marquee{
+  overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(216,188,133,.05),rgba(216,188,133,.02));
+  padding:13px 0;position:relative;z-index:2;
+}
+.marquee-track{
+  display:flex;gap:0;width:max-content;
+  animation:scroll 26s linear infinite;
+}
+.marquee-track span{
+  font-family:'MiSans Heavy','PingFang SC',sans-serif;font-style:italic;font-weight:900;
+  font-size:14px;letter-spacing:.12em;white-space:nowrap;padding:0 18px;
+  color:var(--plat);opacity:.85;
+}
+.marquee-track span i{font-style:normal;color:var(--ice);padding-right:36px;opacity:.6;}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- section headers ---------- */
+.sec-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;letter-spacing:.3em;color:var(--ice);margin-bottom:14px;
+}
+.sec-tag::before{content:'';width:26px;height:1px;background:var(--grad);}
+h2{font-size:clamp(28px,7.6vw,38px);line-height:1.22;margin-bottom:10px;transform:skewX(-3deg);}
+.sec-sub{color:var(--dim);font-size:14.5px;margin-bottom:36px;}
+
+/* ---------- reality:手机=左右交错卡,桌面=时间线 ---------- */
+.pain{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;}
+.pain-flow{position:relative;display:grid;gap:16px;}
+.pain-flow::before{content:'';display:none;}
+.pain-item{
+  position:relative;width:calc(100% - 40px);
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:18px 20px;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  transition:border-color .3s;
+}
+.pain-item:nth-child(odd){margin-right:auto;border-top-left-radius:6px;}
+.pain-item:nth-child(even){margin-left:auto;border-top-right-radius:6px;}
+.pain-item::after{
+  content:'';position:absolute;top:14px;bottom:14px;width:2.5px;border-radius:3px;
+  background:var(--grad);opacity:.8;
+}
+.pain-item:nth-child(odd)::after{left:0;}
+.pain-item:nth-child(even)::after{right:0;}
+.pain-item:hover{border-color:var(--line-hi);}
+.pain-item p{font-size:14.5px;color:var(--dim);}
+.pain-item p b{color:var(--plat-hi);font-weight:700;}
+.pain-item .q{
+  font-family:'MiSans Heavy','PingFang SC',sans-serif;font-style:italic;font-weight:900;
+  font-size:16px;color:var(--txt);display:block;margin-bottom:3px;
+}
+
+/* ---------- LIVE 专区 ---------- */
+.live-sec{overflow:hidden;}
+.live-panel{
+  position:relative;overflow:hidden;border-radius:24px;
+  background:linear-gradient(150deg,rgba(216,188,133,.09),rgba(216,188,133,.02) 55%);
+  padding:30px 24px 26px;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.live-panel::before{
+  content:'';position:absolute;inset:0;border-radius:24px;padding:1px;
+  background:linear-gradient(150deg,rgba(255,255,255,.5),rgba(216,188,133,.12) 45%,rgba(176,140,80,.3));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;
+}
+.live-panel .wm{
+  position:absolute;right:-6px;top:-30px;
+  font-family:'MiSans Heavy','PingFang SC',sans-serif;font-style:italic;font-weight:900;
+  font-size:130px;line-height:1;letter-spacing:.02em;
+  background:linear-gradient(160deg,rgba(216,188,133,.14),rgba(216,188,133,.02));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  pointer-events:none;
+}
+.live-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,77,94,.12);border:1px solid rgba(255,77,94,.4);
+  color:#FF8A94;font-weight:800;font-size:12.5px;letter-spacing:.18em;
+  padding:6px 14px;border-radius:100px;margin-bottom:14px;
+}
+.live-badge::before{
+  content:'';width:8px;height:8px;border-radius:50%;background:var(--live);
+  box-shadow:0 0 10px rgba(255,77,94,.9);animation:pulse 1.6s ease-in-out infinite;
+}
+.live-panel h3{
+  font-size:clamp(24px,6.6vw,32px);line-height:1.25;transform:skewX(-3deg);
+  margin-bottom:6px;position:relative;
+}
+.live-panel .live-sub{color:var(--dim);font-size:14px;margin-bottom:22px;position:relative;}
+.sessions{display:grid;gap:12px;position:relative;}
+.session{
+  display:flex;align-items:center;gap:16px;
+  background:rgba(10,11,16,.5);border:1px solid var(--line);border-radius:16px;
+  padding:16px 18px;
+}
+.session .t{
+  font-family:'MiSans Heavy','PingFang SC',sans-serif;font-style:italic;font-weight:900;
+  font-size:19px;flex:none;width:64px;transform:skewX(-3deg);
+}
+.session .d{font-size:13.5px;color:var(--dim);}
+.session .d b{display:block;font-size:14.5px;color:var(--txt);font-weight:700;margin-bottom:1px;}
+.session .lv{
+  margin-left:auto;flex:none;font-size:10.5px;font-weight:800;letter-spacing:.14em;
+  color:#FF8A94;border:1px solid rgba(255,77,94,.4);border-radius:6px;padding:3px 8px;
+  display:inline-flex;align-items:center;gap:5px;
+}
+.session .lv::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--live);animation:pulse 1.6s ease-in-out infinite;}
+.session .lv.pre{color:var(--ice);border-color:var(--line-hi);}
+.session .lv.pre::before{background:var(--ice);animation:none;}
+.live-foot{margin-top:18px;font-size:13px;color:var(--dim);position:relative;text-align:center;}
+.live-foot b{color:var(--plat);}
+
+/* ---------- offer:bento ---------- */
+.bento{display:grid;gap:14px;grid-template-columns:1fr;}
+.bcard{
+  position:relative;overflow:hidden;border-radius:20px;
+  background:var(--card);
+  padding:24px 22px;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.bcard::before{
+  content:'';position:absolute;inset:0;border-radius:20px;padding:1px;
+  background:linear-gradient(150deg,rgba(255,255,255,.34),rgba(216,188,133,.08) 40%,rgba(216,188,133,.02) 70%,rgba(176,140,80,.22));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;
+}
+.bcard .no{
+  position:absolute;right:10px;top:-14px;
+  font-family:'MiSans Heavy','PingFang SC',sans-serif;font-style:italic;font-weight:900;
+  font-size:88px;line-height:1;
+  background:linear-gradient(160deg,rgba(216,188,133,.15),rgba(216,188,133,.02));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  pointer-events:none;
+}
+.bcard h3{
+  font-size:17.5px;margin-bottom:6px;color:var(--plat-hi);
+  display:flex;align-items:center;gap:10px;position:relative;
+}
+.bcard h3 svg{width:19px;height:19px;color:var(--ice);flex:none;}
+.bcard p{font-size:14px;color:var(--dim);position:relative;max-width:30em;}
+.bcard .tag{
+  display:inline-block;margin-top:12px;font-size:11.5px;font-weight:700;letter-spacing:.04em;
+  color:var(--ice);border:1px solid var(--line);border-radius:100px;padding:4px 12px;
+  background:rgba(216,188,133,.05);position:relative;
+}
+.bcard.hl{
+  background:linear-gradient(150deg,rgba(216,188,133,.10),rgba(216,188,133,.02) 60%);
+}
+.bcard.hl::before{
+  background:linear-gradient(150deg,rgba(255,255,255,.5),rgba(216,188,133,.12) 45%,rgba(176,140,80,.35));
+}
+
+/* ---------- stats ---------- */
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;}
+.stats .wrap{max-width:none;padding:0;}
+.stats-rail{
+  display:flex;gap:14px;overflow-x:auto;padding:6px 24px 18px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.stats-rail::-webkit-scrollbar{display:none;}
+.stat{
+  flex:0 0 auto;min-width:168px;scroll-snap-align:start;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:26px 24px 22px;text-align:left;position:relative;overflow:hidden;
+}
+.stat::after{
+  content:'';position:absolute;left:0;top:0;width:44%;height:2px;
+  background:var(--grad);border-radius:2px;
+}
+.stat .num{font-size:clamp(34px,9vw,44px);line-height:1.05;display:block;transform:skewX(-3deg);}
+.stat .num em{font-style:italic;font-size:.55em;}
+.stat .lbl{font-size:12.5px;color:var(--dim);margin-top:8px;display:block;letter-spacing:.05em;}
+.stats-head{max-width:720px;margin:0 auto;padding:0 24px 22px;}
+
+/* ---------- Telegram 体验卡横幅 ---------- */
+.tg-promo{padding:0 0 56px;}
+.tg-card{
+  position:relative;overflow:hidden;border-radius:22px;
+  background:linear-gradient(135deg,rgba(176,140,80,.12),rgba(216,188,133,.07) 60%,rgba(255,255,255,.03));
+  border:1px solid var(--line-hi);
+  padding:26px 24px;text-align:center;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.tg-card .tg-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11.5px;font-weight:800;letter-spacing:.14em;
+  color:var(--ice);border:1px solid var(--line-hi);border-radius:100px;
+  padding:5px 13px;margin-bottom:14px;background:rgba(216,188,133,.06);
+}
+.tg-card .tg-badge::before{content:'🎁';font-size:13px;}
+.tg-card h3{font-size:clamp(21px,5.6vw,27px);transform:skewX(-3deg);margin-bottom:8px;}
+.tg-card p{font-size:14px;color:var(--dim);margin-bottom:20px;max-width:32em;margin-left:auto;margin-right:auto;}
+.btn-tg{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(115deg,#8C6EFF,#5B8CFF);color:#fff;text-decoration:none;
+  font-size:15.5px;font-weight:800;letter-spacing:.02em;
+  padding:15px 30px;border-radius:100px;cursor:pointer;border:0;
+  box-shadow:0 10px 28px rgba(176,140,80,.28);
+  transition:transform .25s var(--ease),box-shadow .25s;
+}
+.btn-tg:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(176,140,80,.4);}
+.btn-tg:active{transform:scale(.97);}
+.btn-tg svg{width:19px;height:19px;flex:none;}
+
+/* ---------- 学员反馈 ---------- */
+.fb{background:var(--bg);overflow:hidden;}
+.fb-rail{
+  display:grid;grid-template-columns:1fr;gap:14px;padding:6px 0 4px;
+}
+.fb-card{
+  position:relative;border-radius:20px;overflow:hidden;
+  background:var(--card);padding:12px 12px 14px;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.fb-card .imgwrap{position:relative;border-radius:12px;overflow:hidden;}
+.fb-card.tall .imgwrap{max-height:300px;transition:max-height .5s var(--ease);}
+.fb-card.tall .imgwrap::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:90px;
+  background:linear-gradient(to bottom,transparent,rgba(14,16,22,.94));
+  pointer-events:none;transition:opacity .4s;
+}
+.fb-card.tall.open .imgwrap{max-height:1100px;}
+.fb-card.tall.open .imgwrap::after{opacity:0;}
+.fb-more{
+  position:relative;display:block;width:100%;margin-top:10px;
+  background:rgba(216,188,133,.07);border:1px solid var(--line-hi);
+  color:var(--ice);font-size:13px;font-weight:700;font-family:inherit;
+  padding:10px 0;border-radius:100px;cursor:pointer;letter-spacing:.04em;
+}
+.fb-card.open .fb-more{display:none;}
+.fb-card::before{
+  content:'';position:absolute;inset:0;border-radius:20px;padding:1px;
+  background:linear-gradient(150deg,rgba(255,255,255,.34),rgba(216,188,133,.08) 40%,rgba(176,140,80,.22));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  pointer-events:none;
+}
+.fb-card img{width:100%;height:auto;display:block;position:relative;}
+.fb-card .cap{
+  display:flex;align-items:center;gap:8px;
+  font-size:12.5px;color:var(--dim);margin:11px 4px 0;position:relative;
+}
+.fb-card .cap b{color:var(--plat);font-weight:700;}
+.fb-card .cap::before{
+  content:'';flex:none;width:6px;height:6px;border-radius:50%;
+  background:var(--grad);box-shadow:0 0 8px rgba(238,221,184,.7);
+}
+@media(min-width:600px){
+  .fb-rail{grid-template-columns:1fr 1fr;align-items:start;}
+}
+
+/* ---------- fit ---------- */
+.fit-grid{display:grid;gap:14px;}
+.fit-card{
+  border-radius:20px;padding:26px 24px;position:relative;overflow:hidden;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border:1px solid var(--line);
+}
+.fit-yes{background:linear-gradient(165deg,rgba(216,188,133,.11),rgba(216,188,133,.02));border-color:var(--line-hi);}
+.fit-no{background:var(--card);}
+.fit-card h3{font-size:16.5px;margin-bottom:16px;display:flex;align-items:center;gap:9px;}
+.fit-yes h3{color:var(--plat-hi);}
+.fit-no h3{color:var(--dim);}
+.fit-card ul{list-style:none;display:grid;gap:11px;}
+.fit-card li{font-size:14px;padding-left:27px;position:relative;color:var(--txt);}
+.fit-no li{color:var(--dim);}
+.fit-yes li::before{
+  content:'✓';position:absolute;left:0;top:1px;
+  color:#1A0E0B;font-weight:900;font-size:12px;line-height:1;
+  width:18px;height:18px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#D8BC85;box-shadow:0 0 10px rgba(216,188,133,.6);
+}
+.fit-yes li{padding-left:30px;}
+.fit-no li::before{content:'✕';position:absolute;left:0;color:#5D6472;font-weight:900;}
+
+/* ---------- final ---------- */
+.final{text-align:center;overflow:hidden;padding:88px 0 80px;}
+.final .halo{
+  position:absolute;left:50%;bottom:-160px;transform:translateX(-50%);
+  width:560px;height:380px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(150,180,240,.17),transparent 65%);
+  filter:blur(30px);pointer-events:none;
+}
+.final .motto{font-size:clamp(24px,7vw,34px);line-height:1.35;transform:skewX(-3deg);}
+.final .motto small{
+  display:block;font-size:.5em;color:var(--dim);font-style:normal;transform:none;
+  font-family:-apple-system,'PingFang SC',sans-serif;font-weight:400;margin-top:14px;letter-spacing:.1em;
+}
+.final .btn-wa{margin-top:30px;}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:32px 0 100px;text-align:center;}
+.foot-ig{
+  display:inline-flex;align-items:center;gap:9px;
+  color:var(--plat);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.03em;
+  border:1px solid var(--line-hi);border-radius:100px;padding:10px 20px;
+  transition:border-color .2s,transform .2s var(--ease);
+}
+.foot-ig:hover{border-color:var(--plat);transform:translateY(-1px);}
+.foot-ig svg{width:16px;height:16px;color:var(--ice);}
+footer .cr{font-size:12px;color:var(--dim);margin-top:14px;}
+footer .dis{font-size:11px;color:#5D6472;margin-top:14px;line-height:1.7;max-width:36em;margin-left:auto;margin-right:auto;}
+
+/* ---------- floating WA ---------- */
+.float-wa{
+  position:fixed;right:16px;bottom:16px;z-index:90;
+  width:56px;height:56px;border-radius:50%;
+  background:var(--wa);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);
+  transition:transform .2s var(--ease);
+}
+.float-wa:active{transform:scale(.92);}
+.float-wa::before{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  border:2px solid rgba(37,211,102,.5);animation:ring 2.2s var(--ease) infinite;
+}
+@keyframes ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.55);opacity:0}}
+.float-wa svg{width:30px;height:30px;}
+
+/* ---------- floating TG ---------- */
+.float-tg{
+  position:fixed;right:16px;bottom:84px;z-index:90;
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(115deg,#8C6EFF,#5B8CFF);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(176,140,80,.4);
+  transition:transform .2s var(--ease);
+}
+.float-tg:active{transform:scale(.92);}
+.float-tg svg{width:28px;height:28px;}
+
+/* ---------- 资料表 modal ---------- */
+.modal-bg{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(5,6,10,.72);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  display:none;align-items:flex-end;justify-content:center;
+}
+.modal-bg.open{display:flex;}
+.modal{
+  width:100%;max-width:440px;
+  background:#16130E;border:1px solid var(--line-hi);
+  border-radius:24px 24px 0 0;
+  padding:26px 24px calc(26px + env(safe-area-inset-bottom));
+  position:relative;
+  animation:sheetup .4s var(--ease);
+}
+@keyframes sheetup{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal .close{
+  position:absolute;right:14px;top:14px;width:34px;height:34px;
+  border-radius:50%;border:1px solid var(--line);background:none;color:var(--dim);
+  font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.modal h3{font-size:20px;transform:skewX(-3deg);margin-bottom:4px;padding-right:36px;}
+.modal .msub{font-size:12.5px;color:var(--dim);margin-bottom:18px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:13px;font-weight:700;color:var(--plat);margin-bottom:6px;}
+.field label i{font-style:normal;color:var(--live);margin-left:2px;}
+.field input,.field select{
+  width:100%;height:48px;border-radius:12px;
+  border:1px solid var(--line-hi);background:rgba(255,255,255,.04);
+  color:var(--txt);font-size:15px;padding:0 14px;
+  font-family:inherit;appearance:none;-webkit-appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239CC3F0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+}
+.field input:focus,.field select:focus{outline:2px solid var(--ice);outline-offset:0;border-color:transparent;}
+.field select:invalid{color:var(--dim);}
+.modal .btn-wa{width:100%;margin-top:6px;font-size:16px;}
+.modal .mnote{margin-top:10px;font-size:11.5px;color:var(--dim);text-align:center;}
+@media(min-width:600px){
+  .modal-bg{align-items:center;padding:20px;}
+  .modal{border-radius:24px;animation:pop .35s var(--ease);}
+  @keyframes pop{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+}
+
+/* ---------- desktop ---------- */
+@media(min-width:600px){
+  .hero{padding-top:130px;}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:12px;}
+  .hero-visual{width:100%;margin:0;}
+  .hero .h1sub{font-size:26px;}
+  .hero-cta{text-align:left;margin-top:18px;}
+  .fit-grid{grid-template-columns:1fr 1fr;}
+  .bento{grid-template-columns:1fr 1fr;}
+  .bcard.hl{grid-column:span 2;}
+  .stats-rail{justify-content:center;overflow:visible;}
+  /* 桌面恢复时间线样式 */
+  .pain-flow{gap:18px;}
+  .pain-flow::before{
+    display:block;position:absolute;left:18px;top:8px;bottom:8px;width:1px;
+    background:linear-gradient(to bottom,transparent,var(--line-hi) 15%,var(--line-hi) 85%,transparent);
+  }
+  .pain-item{width:auto;margin:0 0 0 44px;border-radius:18px;}
+  .pain-item:nth-child(odd){margin-right:110px;border-top-left-radius:18px;}
+  .pain-item:nth-child(even){margin-left:110px;margin-right:0;border-top-right-radius:18px;}
+  .pain-item::after{display:none;}
+  .pain-item::before{
+    content:'';position:absolute;left:-30.5px;top:24px;width:9px;height:9px;border-radius:50%;
+    background:var(--bg2);border:2px solid var(--ice);
+    box-shadow:0 0 10px rgba(216,188,133,.5);
+  }
+  .pain-item:nth-child(even)::before{left:-96.5px;}
+  .sessions{grid-template-columns:1fr 1fr 1fr;}
+  .session{flex-direction:column;align-items:flex-start;gap:8px;}
+  .session .lv{margin-left:0;}
+  .live-panel{padding:36px 32px 30px;}
+}
+
+/* ---------- reduced motion ---------- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo disp" href="#"><b>JOYCE</b> <span>高冷悦姐</span></a>
+    <a class="nav-ig" href="https://www.instagram.com/joycelimmxy__" target="_blank" rel="noopener" aria-label="Instagram @joycelimmxy__">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a class="nav-wa js-wa" href="https://wa.me/60136543666?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E9%99%AA%E8%B7%91%E8%AE%A1%E5%88%92" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+      咨询
+    </a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="badge" data-hero>马来西亚合格认证交易员</span>
+      <h1 class="disp"><span class="gold" data-hero>陪跑计划</span></h1>
+      <div class="h1sub disp" data-hero>1对1带你<span class="gold">建立自己的</span><br>交易系统</div>
+      <p class="lead" data-hero>不卖信号,不叫你跟单。每天 LIVE 实盘手把手教,从第一单开始陪着你,直到你能独立交易。</p>
+      <div class="chips">
+        <span class="chip" data-hero><span class="dot"></span>每天 <b>LIVE</b> 带盘</span>
+        <span class="chip" data-hero><b>1对1</b> 陪跑</span>
+        <span class="chip" data-hero>超低止损 <b>40点</b></span>
+        <span class="chip" data-hero>专属学习 <b>App</b></span>
+      </div>
+    </div>
+    <div class="hero-visual" data-hero-photo>
+      <img class="hero-photo" src="assets/joyce_bust.webp" alt="Joyce 高冷悦姐 — 马来西亚合格认证交易员" width="646" height="880" fetchpriority="high">
+    </div>
+  </div>
+  <div class="wrap hero-cta" data-hero-cta>
+    <a class="btn-wa js-wa" href="https://wa.me/60136543666?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E9%99%AA%E8%B7%91%E8%AE%A1%E5%88%92" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+      WhatsApp 了解陪跑计划
+    </a>
+    <p class="btn-note">先填 30 秒小资料,陪跑团队了解你的情况后当天回复</p>
+  </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>每天 LIVE 带盘<i>✦</i></span><span>1对1 陪跑<i>✦</i></span><span>止损最多 40点<i>✦</i></span><span>盈亏比可达 1:3<i>✦</i></span><span>主攻 XAUUSD<i>✦</i></span><span>专属学习 APP<i>✦</i></span><span>VIP 群带你交易<i>✦</i></span>
+    <span>每天 LIVE 带盘<i>✦</i></span><span>1对1 陪跑<i>✦</i></span><span>止损最多 40点<i>✦</i></span><span>盈亏比可达 1:3<i>✦</i></span><span>主攻 XAUUSD<i>✦</i></span><span>专属学习 APP<i>✦</i></span><span>VIP 群带你交易<i>✦</i></span>
+  </div>
+</div>
+
+<!-- ================= TELEGRAM 体验卡 ================= -->
+<section class="tg-promo">
+  <div class="wrap">
+    <div class="tg-card" data-reveal>
+      <span class="tg-badge">FREE TRIAL</span>
+      <h3 class="disp">送你<span class="gold">免费体验卡</span></h3>
+      <p>加入 Telegram 学习群,直接参与今晚的 LIVE 实盘,免费体验陪跑计划的教学方式 🆓</p>
+      <a class="btn-tg js-tg" href="https://t.me/+LJ-VgJbK26FiNWVl" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 3 2 10.6c-1.3.5-1.3 1.2-.2 1.6l5 1.6 1.9 6c.2.6.4.8.9.8.4 0 .6-.2.8-.4l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.8-.8L22.5 4c.3-1.3-.5-1.8-1.5-1.3ZM8.8 13.8l9-5.7c.4-.3.8 0 .5.3l-7.3 6.6-.3 3.2z"/></svg>
+        领取体验卡 · 加入 Telegram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REALITY ================= -->
+<section class="pain">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>REALITY CHECK</p>
+    <h2 class="disp" data-reveal>你是不是也<span class="gold">这样?</span></h2>
+    <p class="sec-sub" data-reveal>90% 想学交易的人,都卡在同样的地方。</p>
+    <div class="pain-flow">
+      <div class="pain-item" data-reveal data-side="l"><span class="q disp">跟过信号群</span><p>别人赚,你亏 —— 群解散了,<b>你还是不会交易</b></p></div>
+      <div class="pain-item" data-reveal data-side="r"><span class="q disp">看了几十小时 YouTube</span><p>真金白银的时候,<b>还是不敢下单、乱下单</b></p></div>
+      <div class="pain-item" data-reveal data-side="l"><span class="q disp">要上班、要上课</span><p>没时间盯盘,<b>永远错过进场点</b></p></div>
+      <div class="pain-item" data-reveal data-side="r"><span class="q disp">赚亏全凭运气</span><p>亏了不知道为什么亏,赚了也不知道为什么赚 —— <b>没有自己的系统</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAILY LIVE ================= -->
+<section class="live-sec">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>DAILY LIVE</p>
+    <h2 class="disp" data-reveal>每天 <span class="gold">LIVE 实盘</span>带你交易</h2>
+    <p class="sec-sub" data-reveal>不是录播课 —— 是每天在真实行情里,带你看盘、进场、守纪律。</p>
+    <div class="live-panel" data-reveal>
+      <span class="wm">LIVE</span>
+      <span class="live-badge">LIVE EVERYDAY</span>
+      <h3 class="disp">早/午/晚盘 <span class="gold">全时段覆盖</span></h3>
+      <p class="live-sub">上班上课都跟得上 —— 错过 LIVE,App 里随时补课。</p>
+      <div class="sessions">
+        <div class="session">
+          <span class="t disp gold">早盘</span>
+          <span class="d"><b>盘前提醒</b>开盘前给你当天关注位</span>
+          <span class="lv pre">提醒</span>
+        </div>
+        <div class="session">
+          <span class="t disp gold">午盘</span>
+          <span class="d"><b>LIVE 实盘</b>直播看盘,讲进场逻辑</span>
+          <span class="lv">LIVE</span>
+        </div>
+        <div class="session">
+          <span class="t disp gold">晚盘</span>
+          <span class="d"><b>LIVE 实盘</b>黄金主战场,手把手带</span>
+          <span class="lv">LIVE</span>
+        </div>
+      </div>
+      <p class="live-foot">以实战为主,不讲空理论 —— <b>看着我怎么做,再自己做</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFFER ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>THE PLAN</p>
+    <h2 class="disp" data-reveal>加入陪跑计划<br>你会得到<span class="gold">什么</span></h2>
+    <p class="sec-sub" data-reveal>一套完整的路径,不是零散的课。</p>
+    <div class="bento">
+      <div class="bcard hl" data-reveal>
+        <span class="no">01</span>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>1对1 陪跑</h3>
+        <p>从开户、第一单到独立交易,一对一带着走,问题当天有人答。</p>
+        <span class="tag">陪跑到你独立交易为止</span>
+      </div>
+      <div class="bcard" data-reveal>
+        <span class="no">02</span>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>每天 LIVE 带盘</h3>
+        <p>早盘提醒 + 午盘、晚盘 LIVE 实盘,全时段覆盖,以实战为主。</p>
+        <span class="tag">LIVE EVERYDAY</span>
+      </div>
+      <div class="bcard" data-reveal>
+        <span class="no">03</span>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>超低止损 · 40点</h3>
+        <p>每单止损最多 40 点,风险先锁死;盈亏比可达 1:3,亏小赚大,不靠扛单。</p>
+        <span class="tag">全马超低止损策略</span>
+      </div>
+      <div class="bcard" data-reveal>
+        <span class="no">04</span>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>精准入场点</h3>
+        <p>一套胜率高达8成的进场逻辑,教你等对位置再出手,不凭感觉下单。</p>
+        <span class="tag">主攻黄金 XAUUSD</span>
+      </div>
+      <div class="bcard" data-reveal>
+        <span class="no">05</span>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>专属学习 App</h3>
+        <p>A–Z 完整技术课程,错过 LIVE 随时补课,上班上课也跟得上进度。</p>
+        <span class="tag">随时随地学</span>
+      </div>
+      <div class="bcard" data-reveal>
+        <span class="no">06</span>
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>专属 VIP 群带你交易</h3>
+        <p>进 VIP 群跟着节奏走,另送交易赠金 Credit Bonus,可返佣。</p>
+        <span class="tag">Credit Bonus · 可返佣</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="stats-head">
+    <p class="sec-tag" data-reveal>TRACK RECORD</p>
+    <h2 class="disp" data-reveal>为什么是 <span class="gold">Joyce</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="stats-rail" data-stats>
+      <div class="stat"><span class="num disp gold"><span data-count="4">0</span><em>年</em></span><span class="lbl">实战交易经验</span></div>
+      <div class="stat"><span class="num disp gold"><span data-count="1000">0</span><em>+</em></span><span class="lbl">社区学员</span></div>
+      <div class="stat"><span class="num disp gold"><span data-count="3">0</span><em>个月</em></span><span class="lbl">培养成合格交易员</span></div>
+      <div class="stat"><span class="num disp gold">XAUUSD</span><span class="lbl">主攻黄金</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 学员反馈 ================= -->
+<section class="fb">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>STUDENT FEEDBACK</p>
+    <h2 class="disp" data-reveal>学员怎么<span class="gold">说</span></h2>
+    <p class="sec-sub" data-reveal>真实 WhatsApp 聊天记录,截图为证。</p>
+    <div class="fb-rail" data-reveal>
+      <div class="fb-card tall">
+        <div class="imgwrap"><img src="assets/fb1.webp" alt="学员反馈:跟着 SOP 进场,第一单就赚到" width="640" height="676" loading="lazy"></div>
+        <button type="button" class="fb-more">查看完整对话 ↓</button>
+        <p class="cap"><b>“yes bro 赚到了”</b>· 跟着 SOP 的第一单</p>
+      </div>
+      <div class="fb-card tall">
+        <div class="imgwrap"><img src="assets/fb4.webp" alt="学员反馈:学生党感谢 Joyce 带我入行" width="640" height="983" loading="lazy"></div>
+        <button type="button" class="fb-more">查看完整对话 ↓</button>
+        <p class="cap"><b>“感谢 Joyce 带我入行”</b>· 学生党学员</p>
+      </div>
+      <div class="fb-card">
+        <div class="imgwrap"><img src="assets/fb2.webp" alt="学员反馈:1v1 协助很多,每天都有 hit target" width="640" height="260" loading="lazy"></div>
+        <p class="cap"><b>“每天都有 hit target”</b>· 1对1 学员</p>
+      </div>
+      <div class="fb-card">
+        <div class="imgwrap"><img src="assets/fb3.webp" alt="学员反馈:1对1真的是有用,分析连续 hit TP" width="640" height="319" loading="lazy"></div>
+        <p class="cap"><b>“1对1真的是有用”</b>· 连续 hit TP</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FIT ================= -->
+<section>
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>WHO IS IT FOR</p>
+    <h2 class="disp" data-reveal>这个计划<span class="gold">适合谁</span></h2>
+    <p class="sec-sub" data-reveal>说清楚 —— 我们不是收所有人。</p>
+    <div class="fit-grid">
+      <div class="fit-card fit-yes" data-reveal>
+        <h3>✓ 适合你,如果你是</h3>
+        <ul>
+          <li>认真想学技术的大学生</li>
+          <li>想靠自己判断进出场的上班族</li>
+          <li>被信号群伤过、想真正学会的人</li>
+          <li>愿意跟纪律、守止损的人</li>
+        </ul>
+      </div>
+      <div class="fit-card fit-no" data-reveal>
+        <h3>✕ 不适合,如果你</h3>
+        <ul>
+          <li>想一夜暴富、抱着赌一把的心态</li>
+          <li>只想抄单,不想学会自己交易</li>
+          <li>不愿意设止损、喜欢扛单</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="halo"></div>
+  <div class="wrap">
+    <p class="motto disp" data-reveal>只收<span class="gold">认真想改变</span>的人<small>陪跑到你独立交易为止</small></p>
+    <a class="btn-wa js-wa" data-reveal href="https://wa.me/60136543666?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E9%99%AA%E8%B7%91%E8%AE%A1%E5%88%92" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+      WhatsApp 联系陪跑团队
+    </a>
+    <p class="btn-note" data-reveal>先填 30 秒小资料 · 不强推销,聊完再决定</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="foot-ig" href="https://www.instagram.com/joycelimmxy__" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      IG @joycelimmxy__
+    </a>
+    <p class="cr">© 2026 Joyce 高冷悦姐 · 马来西亚合格认证交易员</p>
+    <p class="dis">DISCLAIMER: 本页面内容仅供教育与资讯用途,不构成任何投资建议。外汇与差价合约交易涉及风险,过往表现不代表未来结果,请自行评估风险承受能力。</p>
+  </div>
+</footer>
+
+<a class="float-tg js-tg" href="https://t.me/+LJ-VgJbK26FiNWVl" target="_blank" rel="noopener" aria-label="Telegram 免费体验卡">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M22 3 2 10.6c-1.3.5-1.3 1.2-.2 1.6l5 1.6 1.9 6c.2.6.4.8.9.8.4 0 .6-.2.8-.4l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.8-.8L22.5 4c.3-1.3-.5-1.8-1.5-1.3ZM8.8 13.8l9-5.7c.4-.3.8 0 .5.3l-7.3 6.6-.3 3.2z"/></svg>
+</a>
+
+<a class="float-wa js-wa" href="https://wa.me/60136543666?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E4%BA%86%E8%A7%A3%E9%99%AA%E8%B7%91%E8%AE%A1%E5%88%92" target="_blank" rel="noopener" aria-label="WhatsApp 咨询">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+</a>
+
+<!-- ================= 资料表 MODAL ================= -->
+<div class="modal-bg" id="waModal" role="dialog" aria-modal="true" aria-label="联系前小资料">
+  <form class="modal" id="waForm">
+    <button type="button" class="close" id="waClose" aria-label="关闭">✕</button>
+    <h3 class="disp">开聊前,先让陪跑团队<span class="gold">认识你</span></h3>
+    <p class="msub">30 秒填完 · 提交后直接跳转 WhatsApp</p>
+    <div class="field">
+      <label for="f-name">怎么称呼你?<i>*</i></label>
+      <input id="f-name" name="称呼" type="text" required maxlength="30" placeholder="例:Wei Ling" autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="f-age">年龄?<i>*</i></label>
+      <input id="f-age" name="年龄" type="text" inputmode="numeric" required maxlength="3" placeholder="例:25">
+    </div>
+    <div class="field">
+      <label for="f-role">你目前的身份?<i>*</i></label>
+      <select id="f-role" name="身份" required>
+        <option value="" disabled selected>请选择</option>
+        <option>大学生</option>
+        <option>上班族</option>
+        <option>自雇 / 做生意</option>
+        <option>全职妈妈</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-exp">交易经验?<i>*</i></label>
+      <select id="f-exp" name="交易经验" required>
+        <option value="" disabled selected>请选择</option>
+        <option>完全没接触过</option>
+        <option>试过,但亏钱 / 没方向</option>
+        <option>有经验,想系统化</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-fund">预计启动资金 (USD)?<i>*</i></label>
+      <select id="f-fund" name="资金" required><option value="" disabled selected>请选择</option><option>1,000</option><option>3,000</option><option>5,000</option><option>10,000</option></select>
+    </div>
+    <div class="field">
+      <label for="f-phone">你的 WhatsApp 号码?<i>*</i></label>
+      <input id="f-phone" name="电话" type="tel" inputmode="tel" required maxlength="20" placeholder="例:0123456789" autocomplete="tel">
+    </div>
+    <button type="submit" class="btn-wa">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+      提交并打开 WhatsApp
+    </button>
+    <p class="mnote">资料只用于陪跑团队了解你的情况,不会外传</p>
+  </form>
+</div>
+
+<!-- ================= TELEGRAM 体验卡 MODAL ================= -->
+<div class="modal-bg" id="tgModal" role="dialog" aria-modal="true" aria-label="领取体验卡前小资料">
+  <form class="modal" id="tgForm">
+    <button type="button" class="close" id="tgClose" aria-label="关闭">✕</button>
+    <h3 class="disp">领取体验卡前,先让陪跑团队<span class="gold">认识你</span></h3>
+    <p class="msub">30 秒填完 · 提交后直接跳转 Telegram</p>
+    <div class="field">
+      <label for="tg-name">怎么称呼你?<i>*</i></label>
+      <input id="tg-name" name="称呼" type="text" required maxlength="30" placeholder="例:Wei Ling" autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="tg-age">年龄?<i>*</i></label>
+      <input id="tg-age" name="年龄" type="text" inputmode="numeric" required maxlength="3" placeholder="例:25">
+    </div>
+    <div class="field">
+      <label for="tg-role">你目前的身份?<i>*</i></label>
+      <select id="tg-role" name="身份" required>
+        <option value="" disabled selected>请选择</option>
+        <option>大学生</option>
+        <option>上班族</option>
+        <option>自雇 / 做生意</option>
+        <option>全职妈妈</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="tg-exp">交易经验?<i>*</i></label>
+      <select id="tg-exp" name="交易经验" required>
+        <option value="" disabled selected>请选择</option>
+        <option>完全没接触过</option>
+        <option>试过,但亏钱 / 没方向</option>
+        <option>有经验,想系统化</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="tg-fund">预计启动资金 (USD)?<i>*</i></label>
+      <input id="tg-fund" name="资金" type="text" inputmode="numeric" required maxlength="12" placeholder="例:1000">
+    </div>
+    <div class="field">
+      <label for="tg-phone">你的 WhatsApp 号码?<i>*</i></label>
+      <input id="tg-phone" name="电话" type="tel" inputmode="tel" required maxlength="20" placeholder="例:0123456789" autocomplete="tel">
+    </div>
+    <button type="submit" class="btn-tg">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 3 2 10.6c-1.3.5-1.3 1.2-.2 1.6l5 1.6 1.9 6c.2.6.4.8.9.8.4 0 .6-.2.8-.4l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.8-.8L22.5 4c.3-1.3-.5-1.8-1.5-1.3ZM8.8 13.8l9-5.7c.4-.3.8 0 .5.3l-7.3 6.6-.3 3.2z"/></svg>
+      领取体验卡 · 加入 Telegram
+    </button>
+    <p class="mnote">资料只用于陪跑团队了解你的情况,不会外传</p>
+  </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var onScrollNav=function(){nav.classList.toggle('scrolled',scrollY>30);};
+  addEventListener('scroll',onScrollNav,{passive:true});onScrollNav();
+
+  var progress=document.getElementById('progress');
+  var ticking=false;
+  addEventListener('scroll',function(){
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(function(){
+      var h=document.documentElement;
+      var p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+      progress.style.transform='scaleX('+p+')';
+      ticking=false;
+    });
+  },{passive:true});
+
+  /* ---------- 资料表 modal ---------- */
+  // 换 WhatsApp 号码只改这一行,下面所有按钮链接会自动同步
+  var WA='60136543666';
+  // 填好 Apps Script 部署后的 Web App URL(见部署说明),否则表单数据不会记录到 Sheet
+  var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbyF7pqeUDWpZrCPI8WzepJI5PzTNO-yfwUE28dcaaelaoNcOLR9o54fJmsf_Mg0Mnck/exec';
+  var modal=document.getElementById('waModal');
+  var form=document.getElementById('waForm');
+  var WA_TEXT=encodeURIComponent('你好,我要开始陪跑计划📊');
+  var submitted=false; // 本次弹窗是否已按「完整提交」发送过
+
+  function readForm(){
+    return {
+      称呼:document.getElementById('f-name').value.trim(),
+      年龄:document.getElementById('f-age').value.trim(),
+      身份:document.getElementById('f-role').value,
+      交易经验:document.getElementById('f-exp').value,
+      启动资金:document.getElementById('f-fund').value.trim(),
+      电话:document.getElementById('f-phone').value.trim()
+    };
+  }
+  function sendToSheet(data,status,useBeacon){
+    if(SHEET_ENDPOINT.indexOf('PASTE_')===0)return;
+    data.time=new Date().toISOString();
+    data.状态=status;
+    var body=JSON.stringify(data);
+    if(useBeacon&&navigator.sendBeacon){
+      navigator.sendBeacon(SHEET_ENDPOINT,body);
+    }else{
+      fetch(SHEET_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:body}).catch(function(){});
+    }
+  }
+  function maybeSendPartial(useBeacon){
+    if(submitted)return; // 已经完整提交过,不用再记一笔半途的
+    var data=readForm();
+    if(data.电话.length>=6){ // 至少填到电话号码,才有意义记录(不然联系不到人)
+      sendToSheet(data,'未完成(中途放弃)',useBeacon);
+    }
+  }
+
+  document.querySelectorAll('.js-wa').forEach(function(a){
+    a.href='https://wa.me/'+WA+'?text='+WA_TEXT;
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      if(typeof fbq==='function')fbq('track','Contact',{currency:'MYR',value:0});
+      submitted=false;
+      modal.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeModal(){
+    maybeSendPartial(false);
+    modal.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.getElementById('waClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  // 手机上更常见:直接关掉分页/切走 App,不会走上面任何一个关闭按钮
+  addEventListener('pagehide',function(){
+    if(modal.classList.contains('open'))maybeSendPartial(true);
+  });
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=readForm();
+    submitted=true;
+
+    if(typeof fbq==='function'){
+      fbq('track','Lead',{content_name:'陪跑计划资料表'});
+    }
+    sendToSheet(data,'完整提交',false);
+
+    var msg='你好,我要开始陪跑计划📊\n称呼:'+data.称呼+'\n年龄:'+data.年龄+'\n身份:'+data.身份+'\n交易经验:'+data.交易经验+'\n启动资金:USD '+data.启动资金+'\n我的号码:'+data.电话;
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+    closeModal();
+  });
+
+  /* ---------- Telegram 体验卡 modal(独立表单,独立 Sheet,不发 WhatsApp) ---------- */
+  var TG_SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbyF7pqeUDWpZrCPI8WzepJI5PzTNO-yfwUE28dcaaelaoNcOLR9o54fJmsf_Mg0Mnck/exec';
+  var TELEGRAM_LINK='https://t.me/+LJ-VgJbK26FiNWVl';
+  var tgModal=document.getElementById('tgModal');
+  var tgForm=document.getElementById('tgForm');
+  var tgSubmitted=false;
+
+  function readTgForm(){
+    return {
+      称呼:document.getElementById('tg-name').value.trim(),
+      年龄:document.getElementById('tg-age').value.trim(),
+      身份:document.getElementById('tg-role').value,
+      交易经验:document.getElementById('tg-exp').value,
+      启动资金:document.getElementById('tg-fund').value.trim(),
+      电话:document.getElementById('tg-phone').value.trim()
+    };
+  }
+  function sendTgToSheet(data,status,useBeacon){
+    if(TG_SHEET_ENDPOINT.indexOf('PASTE_')===0)return;
+    data.time=new Date().toISOString();
+    data.状态='Telegram体验卡 · '+status;
+    var body=JSON.stringify(data);
+    if(useBeacon&&navigator.sendBeacon){
+      navigator.sendBeacon(TG_SHEET_ENDPOINT,body);
+    }else{
+      fetch(TG_SHEET_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:body}).catch(function(){});
+    }
+  }
+  function maybeSendTgPartial(useBeacon){
+    if(tgSubmitted)return;
+    var data=readTgForm();
+    if(data.电话.length>=6){
+      sendTgToSheet(data,'未完成(中途放弃)',useBeacon);
+    }
+  }
+
+  document.querySelectorAll('.js-tg').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      if(typeof fbq==='function')fbq('track','Contact',{currency:'MYR',value:0,content_name:'Telegram体验卡'});
+      tgSubmitted=false;
+      tgModal.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  });
+  function closeTgModal(){
+    maybeSendTgPartial(false);
+    tgModal.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.getElementById('tgClose').addEventListener('click',closeTgModal);
+  tgModal.addEventListener('click',function(e){if(e.target===tgModal)closeTgModal();});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&tgModal.classList.contains('open'))closeTgModal();});
+  addEventListener('pagehide',function(){
+    if(tgModal.classList.contains('open'))maybeSendTgPartial(true);
+  });
+
+  tgForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=readTgForm();
+    tgSubmitted=true;
+
+    if(typeof fbq==='function'){
+      fbq('track','CompleteRegistration',{content_name:'Telegram体验卡'});
+    }
+    sendTgToSheet(data,'完整提交',false);
+
+    window.open(TELEGRAM_LINK,'_blank');
+    closeTgModal();
+  });
+
+  /* ---------- 学员反馈展开 ---------- */
+  document.querySelectorAll('.fb-more').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btn.closest('.fb-card').classList.add('open');
+    });
+  });
+
+  /* ---------- 动画 ---------- */
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced||typeof gsap==='undefined'){
+    document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=el.dataset.count;});
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* hero 入场:CTA 整块一起动,不会互相压 */
+  var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.from('[data-hero]',{opacity:0,y:26,duration:.9,stagger:.09})
+    .from('[data-hero-photo]',{opacity:0,x:36,scale:.95,duration:1.1},'-=.7')
+    .from('[data-hero-cta]',{opacity:0,y:18,duration:.8},'-=.6');
+
+  gsap.to('[data-hero-photo]',{
+    yPercent:-6,ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}
+  });
+
+  /* section reveal:痛点卡从各自一侧滑入(左右效果) */
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    var side=el.dataset.side;
+    var fromVars={opacity:0,duration:.7,ease:'power2.out'};
+    if(side==='l'){fromVars.x=-34;}
+    else if(side==='r'){fromVars.x=34;}
+    else{fromVars.y=26;}
+    fromVars.scrollTrigger={trigger:el,start:'top 88%',toggleActions:'play none none none'};
+    gsap.from(el,fromVars);
+  });
+
+  /* stats count-up */
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var target=parseInt(el.dataset.count,10);
+    var obj={v:0};
+    gsap.to(obj,{
+      v:target,duration:1.6,ease:'power2.out',
+      snap:{v:1},
+      onUpdate:function(){el.textContent=obj.v;},
+      scrollTrigger:{trigger:el,start:'top 90%',once:true}
+    });
+  });
+})();
+</script>
+</body>
+</html>
